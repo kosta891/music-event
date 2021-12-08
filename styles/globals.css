@@ -10,8 +10,18 @@ html,
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.8;
+  width: 100%;
+  height: 100%;
 }
+.global-wrapper {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
 
+  /* max-width: 960px; */
+}
 a {
   text-decoration: none;
   color: steelblue;

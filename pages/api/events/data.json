@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "event 1",
+      "slug": "slug-za-event-1",
+      "description": "deskripcija za event 1"
+    },
+    {
+      "id": 2,
+      "name": "event 2",
+      "slug": "slug-za-event-2",
+      "description": "deskripcija za event 2"
+    }
+  ]
+}
