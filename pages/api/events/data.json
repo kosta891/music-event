@@ -4,13 +4,49 @@
       "id": 1,
       "name": "event 1",
       "slug": "slug-za-event-1",
-      "description": "deskripcija za event 1"
+      "description": "deskripcija za event 1",
+      "image": "https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "2020/12/12",
+      "time": "20h",
+      "performers": "event 1 performer",
+      "venue": "venue 1",
+      "address": "address 1"
     },
     {
       "id": 2,
       "name": "event 2",
       "slug": "slug-za-event-2",
-      "description": "deskripcija za event 2"
+      "description": "deskripcija za event 2",
+      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "2020/12/12",
+      "time": "20h",
+      "performers": "event 2 performer",
+      "venue": "venue 2",
+      "address": "address 2"
+    },
+    {
+      "id": 3,
+      "name": "event 3",
+      "slug": "slug-za-event-3",
+      "description": "deskripcija za event 3",
+      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "2020/12/12",
+      "time": "20h",
+      "performers": "event 3 performer",
+      "venue": "venue 3",
+      "address": "address 3"
+    },
+    {
+      "id": 4,
+      "name": "event 4",
+      "slug": "slug-za-event-4",
+      "description": "deskripcija za event 4",
+      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "date": "2020/12/12",
+      "time": "20h",
+      "performers": "event 4 performer",
+      "venue": "venue 4",
+      "address": "address 4"
     }
   ]
 }
