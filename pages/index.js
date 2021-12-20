@@ -21,11 +21,11 @@ export default function Home({ events }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${API_URL}/api/events`);
+  const response = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   const events = await response.json();
 
   return {
-    props: { events: events.slice(0, 3) },
+    props: { events },
     revalidate: 1,
   };
 }
@@ -36,6 +36,6 @@ export async function getStaticProps() {
 //   const events = await response.json();
 //   console.log(events);
 //   return {
-//     props: { events },
+//     props: { events : events.slice(0, 3) },
 //   };
 // }
