@@ -12,7 +12,7 @@ import { FaImage } from 'react-icons/fa';
 import Modal from '@/components/Modal';
 import ImageUpload from '@/components/ImageUpload';
 
-const EditEventPage = ({ evt }) => {
+const EditEventPage = ({ evt, cookie }) => {
   const [values, setValues] = useState({
     name: evt.name,
     performers: evt.performers,
@@ -182,13 +182,16 @@ const EditEventPage = ({ evt }) => {
 
 export default EditEventPage;
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
   const res = await fetch(`${API_URL}/events/${id}`);
   const evt = await res.json();
-
+  //console.log(req);
+  const cookie = req.headers.cookie;
+  console.log(cookie);
   return {
     props: {
       evt,
+      cookie,
     },
   };
 }
