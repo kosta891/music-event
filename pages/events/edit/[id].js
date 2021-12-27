@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { parseCookies } from '@/helpers/index';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 import { API_URL } from '@/config/index';
@@ -12,7 +13,7 @@ import { FaImage } from 'react-icons/fa';
 import Modal from '@/components/Modal';
 import ImageUpload from '@/components/ImageUpload';
 
-const EditEventPage = ({ evt, cookie }) => {
+const EditEventPage = ({ evt, token }) => {
   const [values, setValues] = useState({
     name: evt.name,
     performers: evt.performers,
@@ -47,10 +48,15 @@ const EditEventPage = ({ evt, cookie }) => {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(values),
       });
       if (!res.ok) {
+        if (res.status === 403 || res.status === 401) {
+          toast.error('Unauthorized');
+          return;
+        }
         toast.error('Something went wrong');
       } else {
         toast.success('Created');
@@ -174,7 +180,11 @@ const EditEventPage = ({ evt, cookie }) => {
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <ImageUpload evtId={evt.id} imageUploaded={imageUploaded} />
+        <ImageUpload
+          evtId={evt.id}
+          imageUploaded={imageUploaded}
+          token={token}
+        />
       </Modal>
     </Layout>
   );
@@ -183,15 +193,15 @@ const EditEventPage = ({ evt, cookie }) => {
 export default EditEventPage;
 
 export async function getServerSideProps({ params: { id }, req }) {
+  const { token } = parseCookies(req);
+
   const res = await fetch(`${API_URL}/events/${id}`);
   const evt = await res.json();
-  //console.log(req);
-  const cookie = req.headers.cookie;
-  console.log(cookie);
+
   return {
     props: {
       evt,
-      cookie,
+      token,
     },
   };
 }
